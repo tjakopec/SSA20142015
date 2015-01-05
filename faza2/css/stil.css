@@ -1,0 +1,25 @@
+
+.naslov{
+	width: 100%;
+	text-align: center;
+	border: 1px solid #955251;
+	color: #955251;
+}
+.button{
+	/*Boja godine 2015 MARSALA */
+	background-color: #955251;
+}
+
+.button:hover{
+	background-color: #a97577;
+}
+
+a.button{
+	width: 100%;
+}
+
+hr.cisto{
+	clear: both;
+    border: 1px solid transparent;
+    height: 0px;
+}
