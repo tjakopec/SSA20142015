@@ -1,10 +1,11 @@
+<?php include_once 'konfiguracija.php'; ?>
 <!doctype html>
 <html class="no-js" lang="en">
 	<head>
 		<?php
 		include_once 'head.php';
 		?>
-		<title>Azil</title>
+		<title><?php echo $naslovAPP; ?></title>
 	</head>
 	<body>
 		<?php

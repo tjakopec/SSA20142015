@@ -9,7 +9,7 @@
 				<!-- <img src="http://lorempixel.com/150/100/animals"> -->
 			</div>
 			<div class="large-9 columns">
-				<h1 class="naslov">Naslov</h1>
+				<h1 class="naslov"><?php echo $naslovAPP; ?></h1>
 			</div>
 		</div>
 	</div>
