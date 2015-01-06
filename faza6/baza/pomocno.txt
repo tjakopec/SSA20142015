@@ -1,0 +1,3 @@
+CMD
+cd c:\xampp\mysql\bin
+mysql -uUSER -pPASSWORD --default_character_set=utf8 < "E:\Dokumenti\Aptana Studio 3 Workspace\SSA20142015\faza4\baza\azil_skripta.sql"
