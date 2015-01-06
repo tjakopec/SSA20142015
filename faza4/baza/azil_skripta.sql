@@ -63,6 +63,11 @@ insert into dojave (pas_id, korisnici_id, datum) values (2, 2, '2015-01-01');
 insert into dojave (pas_id, korisnici_id, datum) values (3, 3, '2015-01-02');
 
 
-
+create table neobradene_dojave (
+sifra int not null primary key auto_increment,
+vrsta varchar(10) not null,
+poruka text not null,
+datum datetime not null
+) engine=innodb;
 
 
