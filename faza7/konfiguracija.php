@@ -3,8 +3,8 @@
 /*
 $mysql_host = "localhost";
 $mysql_database = "ssa20142015";
-$mysql_user = "xxxxxx";
-$mysql_password = "xxxxxxx";
+$mysql_user = "xxxxx";
+$mysql_password = "xxxxx";
 $putanjaApp="/SSA20142015/"; //ako na server ide u root onda je putanjaApp /
 */
 
@@ -15,7 +15,7 @@ $mysql_host = "localhost";
 $mysql_database = "ssa20142015";
 $mysql_user = "root";
 $mysql_password = "000000";
-$putanjaApp="/SSA20142015/faza6/";
+$putanjaApp="/SSA20142015/faza7/";
 
 /*
  * Identifikacija aplikacije 

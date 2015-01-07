@@ -8,6 +8,11 @@
 .button{
 	/*Boja godine 2015 MARSALA */
 	background-color: #955251;
+	font-family: 'Bree Serif', serif;
+}
+
+.panel.callout{
+	font-family: 'Open Sans', sans-serif;
 }
 
 .button:hover{
@@ -27,3 +32,5 @@ img.slikaPregled {
     max-width: 200px;
     height: auto;      
 }
+
+
