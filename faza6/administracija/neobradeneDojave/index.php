@@ -2,6 +2,10 @@
 if(!isset($_SESSION[$ida . "autoriziran"])){
 	header("location: ../../index.php");
 }
+if(isset($_GET["odobreno"]) && isset($_GET["sifra"])){
+	$izraz = $veza->prepare("update neobradene_dojave set odobreno=:odobreno where sifra=:sifra;");
+	$izraz->execute($_GET);
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -43,11 +47,12 @@ if(!isset($_SESSION[$ida . "autoriziran"])){
 				<th>Slika</th>
 				<th>Vrsta</th>
 				<th>Poruka</th>
+				<th>Status</th>
 				<th>Akcija</th>
 			</tr>
 		</thead>
 		<tbody><?php
-			$izraz = $veza -> prepare("select * from neobradene_dojave where poruka like :uvjet");
+			$izraz = $veza -> prepare("select * from neobradene_dojave where poruka like :uvjet order by odobreno");
 			if(!$_POST){
 				$uvjet="";
 			}else{
@@ -60,12 +65,25 @@ if(!isset($_SESSION[$ida . "autoriziran"])){
 			foreach ($rezultati as $red):
 			?>
 			<tr>
-				<td><?php echo $red -> sifra; ?></td>
+				<td>
+					<?php
+					 if(file_exists($_SERVER["DOCUMENT_ROOT"] . $putanjaApp . "img/dojave/" . $red -> sifra . ".jpg")): ?>
+					<img class="slikaPregled" src="<?php echo $putanjaApp; ?>img/dojave/<?php echo $red -> sifra; ?>.jpg" />
+					<?php endif; ?>
+					</td>
 				<td><?php echo $red -> vrsta; ?></td>
 				<td><?php echo $red -> poruka; ?></td>
+				<td><?php echo $red -> odobreno; ?></td>
 				<td>
-					<a href="promjena.php?sifra=<?php echo $red -> sifra; ?>">Promjeni</a>
-					<a href="brisanje.php?sifra=<?php echo $red -> sifra; ?>">Obriši</a>
+					<?php
+					 if($red -> odobreno): ?>
+					<a href="<?php echo $_SERVER["PHP_SELF"] ?>?odobreno=0&sifra=<?php echo $red -> sifra; ?>">Zabrani</a>
+					<?php else:
+						?>
+						<a href="<?php echo $_SERVER["PHP_SELF"] ?>?odobreno=1&sifra=<?php echo $red -> sifra; ?>">Odobri</a>
+						<?php
+					endif; ?>
+					
 				</td>
 			</tr>
 			<?php

@@ -1,21 +1,20 @@
 <ul class="example-orbit show-for-medium-up" data-orbit>
-	<li>
-		<img src="img/kruh.jpg">
+	<?php
+	$slike = scandir($_SERVER["DOCUMENT_ROOT"] . $putanjaApp . "img/dojave/");
+	
+	foreach ($slike as $s):
+		if(substr($s, 0,1)=="."){
+			continue;
+		} 
+		?>
+		<li>
+		<img style="width: 750px; height: 500px;" src="img/dojave/<?php echo $s ?>">
 		<div class="orbit-caption">
-			Caption One.
+			Dio opisa iz baze. <a href="#">Više</a>
 		</div>
 	</li>
-	<li class="active">
-		<img src="img/cvijet.jpg">
-		<div class="orbit-caption">
-			Caption Two.
-		</div>
-	</li>
-	<li>
-		<img src="img/grad.jpg">
-		<div class="orbit-caption">
-			Caption Three.
-		</div>
-	</li>
+		<?php
+	endforeach;
+	 ?>
 </ul>
 

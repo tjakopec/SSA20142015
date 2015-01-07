@@ -19,19 +19,18 @@ include_once 'modalAutorizacija.php';
 									$("#poruka").html("Lozinka obavezno");
 									return; //Shor Curcuit
 								}
+								var podaci = {email: $("#email").val(), lozinka: MD5($("#lozinka").val())};
 								$.ajax({
 											type : "POST",
 											url : "autoriziraj.php",
-											data : "email=" + $("#email").val()
-													+ "&lozinka="
-													+ MD5($("#lozinka").val()),
-											dataType : "html",
+											data : "podaci=" + JSON.stringify(podaci),
 											success : function(msg) {
-												if (msg == "true") {
-													window.location = "administracija/nadzornaPloca.php";
+												var odgovor= $.parseJSON(msg);
+												if (odgovor.status) {
+													window.location = odgovor.stranica;
 												}
 												else {
-													$("#poruka").html("Neispravna kombinacija korisničkog imena i lozinke");
+													$("#poruka").html(odgovor.poruka);
 												}
 											}
                       

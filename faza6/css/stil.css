@@ -23,3 +23,7 @@ hr.cisto{
     border: 1px solid transparent;
     height: 0px;
 }
+img.slikaPregled {
+    max-width: 200px;
+    height: auto;      
+}
